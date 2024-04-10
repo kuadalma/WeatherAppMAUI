@@ -1,6 +1,6 @@
 ﻿namespace WeatherApp.Models
 {
-    class Geo
+    class GeoModel
     {
         public string Name { get; set; }
         public double Lat { get; set; }
