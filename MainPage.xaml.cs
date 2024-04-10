@@ -32,10 +32,10 @@ namespace WeatherApp
             return ForecastWeather;
         }
 
-        private static async Task<CurrentWeatherModel> FetchCurentWeather(string cityName)
+        private static async Task<CurrentWeatherModel> FetchCurentWeather(string Lat, string Lon)
         {
             using var client = new HttpClient();
-            var res = await client.GetAsync($"http://api.openweathermap.org/data/2.5/weather?q={cityName}&units=metric&appid={ApiKey}");
+            var res = await client.GetAsync($"https://api.openweathermap.org/data/2.5/weather?lat={Lat}&lon={Lon}&appid={ApiKey}");
             var json = await res.Content.ReadAsStringAsync();
             CurrentWeatherModel CurrentWeather = JsonConvert.DeserializeObject<CurrentWeatherModel>(json);
             return CurrentWeather;
