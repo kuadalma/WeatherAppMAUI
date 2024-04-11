@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
              x:Class="WeatherApp.MainPage"
              Title="Weather App">
 
@@ -26,8 +25,8 @@
 
                 <StackLayout Grid.Column="0" Spacing="30" HorizontalOptions="Center">
                     <Label/>
-                    <Label Text="Phase:" FontSize="20"/>
                     <Label Text="Country:" FontSize="20"/>
+                    <Label Text="City:" FontSize="20"/>
                     <Label Text="Temperature:" FontSize="20"/>
                     <Label Text="Felt Temperature:" FontSize="20"/>
                     <Label Text="Pressure:" FontSize="20"/>
@@ -35,13 +34,12 @@
                     <Label Text="Visibility:" FontSize="20"/>
                     <Label Text="Wind Speed:" FontSize="20"/>
                     <Label Text="Description:" FontSize="20"/>
-                    <Label Text="City:" FontSize="20"/>
                 </StackLayout>
 
                 <StackLayout Grid.Column="1" Spacing="30" HorizontalOptions="Center">
                     <Label Text="Today" FontSize="20"/>
-                    <Label x:Name="LPhase" Text="N/A" FontSize="20"/>
                     <Label x:Name="LCountry1" Text="N/A" FontSize="20"/>
+                    <Label x:Name="LCity1" Text="N/A" FontSize="20"/>
                     <Label x:Name="LTemperature1" Text="N/A" FontSize="20"/>
                     <Label x:Name="LFeltTemperature1" Text="N/A" FontSize="20"/>
                     <Label x:Name="LPressure1" Text="N/A" FontSize="20"/>
@@ -49,13 +47,12 @@
                     <Label x:Name="LVisibility1" Text="N/A" FontSize="20"/>
                     <Label x:Name="LWindSpeed1" Text="N/A" FontSize="20"/>
                     <Label x:Name="LDescription1" Text="N/A" FontSize="20"/>
-                    <Label x:Name="LCity1" Text="N/A" FontSize="20"/>
                 </StackLayout>
 
                 <StackLayout Grid.Column="3" Spacing="30" HorizontalOptions="Center">
                     <Label Text="Tommorow" FontSize="20"/>
-                    <Label x:Name="LPhase2" Text="N/A" FontSize="20"/>
                     <Label x:Name="LCountry2" Text="N/A" FontSize="20"/>
+                    <Label x:Name="LCity2" Text="N/A" FontSize="20"/>
                     <Label x:Name="LTemperature2" Text="N/A" FontSize="20"/>
                     <Label x:Name="LFeltTemperature2" Text="N/A" FontSize="20"/>
                     <Label x:Name="LPressure2" Text="N/A" FontSize="20"/>
@@ -63,10 +60,8 @@
                     <Label x:Name="LVisibility2" Text="N/A" FontSize="20"/>
                     <Label x:Name="LWindSpeed2" Text="N/A" FontSize="20"/>
                     <Label x:Name="LDescription2" Text="N/A" FontSize="20"/>
-                    <Label x:Name="LCity2" Text="N/A" FontSize="20"/>
                 </StackLayout>
             </Grid>
         </VerticalStackLayout>
-        <maps:Map x:Name="map" />
     </Grid>
 </ContentPage>
