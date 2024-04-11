@@ -8,43 +8,54 @@ namespace WeatherApp
 {
     public partial class MainPage : ContentPage
     {
-        private const string ApiKey = ""; // Wpisz tutaj swój klucz API
+        private const string ApiKey = "8bec8c84b69bd57a4a17c3eb433e96a5"; // Wpisz tutaj swój klucz API
         private string CityName = "Częstochowa"; // Wpisz tutaj nazwę miasta
-        private double Lat = int.MaxValue;
-        private double Lon = int.MaxValue;
-        //private double Lat = 50.8120466;
-        //private double Lon = 19.113213;
+        //private double Lat = int.MaxValue;
+        //private double Lon = int.MaxValue;
+        private double Lat = 50.8120466;
+        private double Lon = 19.113213;
 
 
         public MainPage()
         {
             InitializeComponent();
-            GetWeather();
+            //GetWeather();
         }
-
         private async void GetWeather()
         {
-            if (Lat == int.MaxValue || Lon == int.MaxValue)
-            {
-                var geo = await FeatchGeo(CityName);
-                if (double.TryParse(geo.Lat.ToString(), out _))
-                {
-                    Lat = geo.Lat;
-                    Lon = geo.Lon;
-                }
-            }
-            int statusCode;
+            //if (Lat == int.MaxValue && Lon == int.MaxValue)
+            //{
+            //    var geo = await FeatchGeo(CityName);
+            //    if (double.TryParse(geo.Lat.ToString(), out _))
+            //    {
+            //        Lat = geo.Lat;
+            //        Lon = geo.Lon;
+            //    }
+            //}else if (CityNameBox.Text != null && CityNameBox.Text != "")
+            //{
+            //    var geo = await FeatchGeo(CityNameBox.Text);
+            //    if (double.TryParse(geo.Lat.ToString(), out _))
+            //    {
+            //        Lat = geo.Lat;
+            //        Lon = geo.Lon;
+            //    }
+            //}
+            //else
+            //{
+            //    return;
+            //}
+            //int statusCode;
 
-            CurrentWeatherModel CWeather = await FetchCurrentWeather(Lat.ToString(), Lon.ToString());
-            if (int.TryParse(CWeather.Cod.ToString(), out statusCode) && statusCode >= 200 && statusCode < 300)
-            {
-                DisplayCurrentWeather(CWeather);
-            }
-            ForecastWeatherModel FWeather = await FetchForcastWeather(Lat.ToString(), Lon.ToString());
-            if (int.TryParse(FWeather.Cod.ToString(), out statusCode) && statusCode >= 200 && statusCode < 300)
-            {
-                DisplayForcastWeather(FWeather, 8);
-            }
+            //CurrentWeatherModel CWeather = await FetchCurrentWeather(Lat.ToString(), Lon.ToString());
+            //if (int.TryParse(CWeather.Cod.ToString(), out statusCode) && statusCode >= 200 && statusCode < 300)
+            //{
+            //    DisplayCurrentWeather(CWeather);
+            //}
+            //ForecastWeatherModel FWeather = await FetchForcastWeather(Lat.ToString(), Lon.ToString());
+            //if (int.TryParse(FWeather.Cod.ToString(), out statusCode) && statusCode >= 200 && statusCode < 300)
+            //{
+            //    DisplayForcastWeather(FWeather, 8);
+            //}
         }
 
         private void DisplayCurrentWeather(CurrentWeatherModel weather)
@@ -95,6 +106,11 @@ namespace WeatherApp
             var json = await res.Content.ReadAsStringAsync();
             CurrentWeatherModel CurrentWeather = JsonConvert.DeserializeObject<CurrentWeatherModel>(json);
             return CurrentWeather;
+        }
+
+        private void btnNameSearch_Clicked(object sender, EventArgs e)
+        {
+            GetWeather();
         }
     }
 
